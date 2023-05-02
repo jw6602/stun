@@ -17,8 +17,11 @@ import (
 
 // Dial connects to the address on the named network and then
 // initializes Client on that connection, returning error if any.
-func Dial(network, address string) (*Client, error) {
-	conn, err := net.Dial(network, address)
+func Dial(localAddr net.Addr, network, address string) (*Client, error) {
+	dialer := net.Dialer{
+		LocalAddr: localAddr,
+	}
+	conn, err := dialer.Dial(network, address)
 	if err != nil {
 		return nil, err
 	}
