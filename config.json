@@ -1,5 +1,5 @@
 {
-    "prefix_list": [],
+    "prefix_list": ["127.0.0.0/24"],
     "port": 65533,
-    "token": ""
+    "token": "123"
 }
